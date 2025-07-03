@@ -1,0 +1,40 @@
+<style>
+    img {
+        width: 30%;
+        margin-right: 35%;
+        margin-left: 35%;
+    }
+</style>
+
+<h1>Feedback</h1>
+{{!-- Animated by MillMotion; www.millmotion.co.uk --}}
+<img src="https://media3.giphy.com/media/l3q2FnW3yZRJVZH2g/giphy.gif">
+<p>
+    Thank you so much for visiting my site! I greatly appreciate that you took the time to read through everything. 
+    Please fill out the survey below and provide any ideas you may have about my vacation ideas! I would love to 
+    know if there's something incredible I should include, or perhaps something I should avoid (like alligators 
+    and hurricanes).
+</p>
+<form action="http://web.engr.oregonstate.edu/~zhangluy/tools/class-content/form_tests/check_request.php" method="GET" id="survey">
+<fieldset>
+    <legend>Vacation Survey and Feedback Form</legend>
+    <label>Have you ever been to the Florida Keys?</label>
+    <br>
+    <label><input type="radio" name="visited" value="yes">Yes</label>
+    <label><input type="radio" name="visited" value="no">No</label>
+    <br>
+    <label>What are some additional activities you would recommend?</label>
+    <br>
+    <textarea form="survey" name="moreActivities"></textarea>
+    <br>
+    <label>Do you have specific recommendations on places to stay?</label>
+    <br>
+    <textarea form="survey" name="bestPlaces"></textarea>
+    <br>
+    <label>Is there anything I should avoid?</label>
+    <br>
+    <textarea form="survey" name="avoidThese"></textarea>
+    <br>
+    <input type="submit" value="Submit">
+</fieldset>
+</form>

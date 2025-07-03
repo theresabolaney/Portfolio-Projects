@@ -1,0 +1,133 @@
+<script>
+    //Citation: https://www.w3schools.com/howto/howto_js_slideshow.asp
+    //The next few functions are used to create the carousel and were based on the code listed at the link above
+    //The displaySlides function will control which slide is displayed when the next/previous buttons are pressed
+    //The rollingSlides function will keep the slides rotating automatically
+    var slideCount = 1;
+    var rollingCount = 0;
+
+    function displaySlides(number){
+        var i;
+        var slides = document.getElementsByTagName("img");
+        if (number > slides.length){
+            slideCount = 1;
+        }
+        if (number < 1){
+            slideCount = slides.length;
+        }
+        for (i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
+        }
+        slides[slideCount - 1].style.display = "block";
+    }
+
+    function nextSlide(number) {
+        displaySlides(slideCount += number);
+    }
+
+    function rollingSlides(){
+        var i;
+        var slides = document.getElementsByTagName("img");
+        for (i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
+        }
+        rollingCount++;
+        if (rollingCount > slides.length){
+            rollingCount = 1;
+        }
+        slides[rollingCount-1].style.display = "block";
+        setTimeout(rollingSlides, 4000);
+    }
+</script>
+
+<style>
+    h2 {
+        font-style: italic;
+        text-align: center;
+    }
+
+    .carousel {
+        max-width: 100%;
+    }
+
+    img {
+        width: 50%;
+        height: 500px;
+        display: none;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+
+    .prev {
+        position: absolute;
+        top: 50%;
+        margin-left: 12.5%;
+        border: solid;
+    }
+    .next {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        margin-right: 12.5%;
+        border: solid;
+    }
+
+    .scrollingTextBox {
+        height: 150px;
+        overflow: scroll;
+        border: solid;
+        position: static;
+    }
+</style>
+
+<h1>Theresa's Dream Vacation!</h1>
+<h2>Florida Keys!</h2>
+<div class="carousel">
+    <div>
+        {{!-- Photographer: Jose Antonio Taberes --}}
+        <img src="https://images.freeimages.com/images/large-previews/c73/beach-1404658.jpg">
+        {{!-- Photographer: Fabian Garcia --}}
+        <img src="https://images.freeimages.com/images/large-previews/188/diving-san-andres-islas-1375482.jpg">
+        {{!-- Photographer: Krzysztof Kozerski --}}
+        <img src="https://images.freeimages.com/images/large-previews/2df/oldstyle-yacht-2-1555931.jpg">
+        <script>rollingSlides();</script>
+    </div>
+        <a class="prev" onclick="nextSlide(-1)">Previous</a>
+        <a class="next" onclick="nextSlide(1)">Next</a>
+</div>
+<br>
+<p>
+    <h3>
+        A history...
+    </h3>
+    Ever since I was a kid I've wanted to visit the Florida Keys. I remember hearing about them and the Everglades
+    right around the age I started to grow out of DisneyWorld -- so, I thought a vacation centered around outdoor 
+    activities and beach-side resorts sounded rather mature. I was fascinated by the ocean at the time and loved
+    watching nature documentaries. I imagined myself exploring a mangrove, snorkeling at a reef, and then 
+    relaxing on the beach in the evening. It was an amazing idea for a kid who grew up in Ohio! I grew obsessed with 
+    it over time, constantly longing for a sunny day at the beach (note: Cleveland has beaches but you don't want 
+    to visit them). I began to dream about it over the years... and now I can say that I've calmed down a bit, but 
+    I still REALLY WANT TO GO TO THE FLORIDA KEYS. 
+    <br>
+    <br>
+    I'm fine, though. Really.
+    <br>
+    <br>
+    This site highlights some of the things I would love to see and do in the Florida Keys, as well as places 
+    I would stay. Please visit the links above and when you're done, go to the Feedback page to give information 
+    about the Florida keys that could help me plan my dream vacation! Thank you!
+</p>
+<div class="scrollingTextBox" style="font-style: italic;">
+By visiting this page, you agree to the following terms even if you haven't read them:
+<ul>
+    <li>You will not steal any ideas for your own vacation</li>
+    <li>You will fill out the Feedback survey before leaving the site</li>
+    <li>You will tell everyone about how amazing this website is</li>
+    <li>You will marvel at how amazing the Florida Keys are and saying nothing bad about them</li>
+    <li>You will visit the Florida Keys within the next 365 days</li>
+    <li>You must name your first-born child "Florida Keys"</li>
+    <li>You will not stay at the same hotel as me, EVER</li>
+    <li>You cannot join a class-action lawsuit against me; all legal matters must be settled via arbitration</li>
+    <li>Just kidding, you can't even do that!</li>
+</ul>
+</div>
