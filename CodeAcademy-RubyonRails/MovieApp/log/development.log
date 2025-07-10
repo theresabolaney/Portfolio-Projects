@@ -1,0 +1,337 @@
+Started GET "/" for ::1 at 2025-07-09 20:17:14 -0500
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='MovieApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/theresa/.local/share/mise/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/theresa/.local/share/mise/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 55ms (Views: 8.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-07-10 01:25:07.873964', '2025-07-10 01:25:07.873967') RETURNING "key" /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+Migrating to CreateMovies (20250710011743)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "image" varchar, "release_year" varchar, "plot" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250710011743') RETURNING "version" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+Migrating to CreateActors (20250710011750)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "actors" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "image" varchar, "bio" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250710011750') RETURNING "version" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+Migrating to CreateParts (20250710011933)
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE TABLE "parts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_id" integer, "actor_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='MovieApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_parts_on_movie_id" ON "parts" ("movie_id") /*application='MovieApp'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_parts_on_actor_id" ON "parts" ("actor_id") /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250710011933') RETURNING "version" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (2.3ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('George', 'Clooney', 'https://content.codecademy.com/courses/learn-rails/img/george-clooney.jpg', 'George Timothy Clooney is an American actor, writer, producer, director, and activist. He has received three Golden Globe Awards for his ...', '2025-07-10 01:29:12.344294', '2025-07-10 01:29:12.344294') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (3.6ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (9.5ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Matt', 'Damon', 'https://content.codecademy.com/courses/learn-rails/img/matt-damon.jpg', 'Matthew Paige "Matt" Damon is an American actor, voice actor, screenwriter, producer, and philanthropist.', '2025-07-10 01:29:12.353220', '2025-07-10 01:29:12.353220') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (2.5ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Brad', 'Pitt', 'https://content.codecademy.com/courses/learn-rails/img/brad-pitt.jpg', 'William Bradley "Brad" Pitt is an American actor and producer. He has received a Golden Globe Award, a Screen Actors Guild Award, and thr...', '2025-07-10 01:29:12.384890', '2025-07-10 01:29:12.384890') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (2.5ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Elliot', 'Gould', 'https://content.codecademy.com/courses/learn-rails/img/elliot-gould.jpg', 'Elliott Gould is an American actor. He began acting in Hollywood films during the 1960s, and has remained prolific ever since. ', '2025-07-10 01:29:12.413402', '2025-07-10 01:29:12.413402') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.2ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Julia', 'Roberts', 'https://content.codecademy.com/courses/learn-rails/img/julia-roberts.jpg', 'Julia Fiona Roberts is an American actress and producer. She became a Hollywood star after headlining the romantic comedy Pretty Woman, w...', '2025-07-10 01:29:12.424666', '2025-07-10 01:29:12.424666') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.4ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Mark', 'Wahlberg', 'https://content.codecademy.com/courses/learn-rails/img/mark-wahlberg.jpg', 'Mark Robert Michael Wahlberg is an American actor, producer, model, and former rapper. He was known as Marky Mark in his earlier years, b...', '2025-07-10 01:29:12.435642', '2025-07-10 01:29:12.435642') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.5ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Marion', 'Cotillard', 'https://content.codecademy.com/courses/learn-rails/img/marion-cotillard.jpg', 'Marion Cotillard is a French actress, singer, songwriter, environmentalist and spokesperson for Greenpeace.', '2025-07-10 01:29:12.440865', '2025-07-10 01:29:12.440865') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Laurence', 'Fishburne', 'https://content.codecademy.com/courses/learn-rails/img/laurence-fishburne.jpg', 'Laurence John Fishburne III is an American actor, playwright, director, and producer. He is best known for his roles as Morpheus in the M...', '2025-07-10 01:29:12.455506', '2025-07-10 01:29:12.455506') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.9ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Jude', 'Law', 'https://content.codecademy.com/courses/learn-rails/img/jude-law.jpg', 'David Jude Heyworth Law, known professionally as Jude Law, is an English actor, film producer and director. He began acting with the Nati...', '2025-07-10 01:29:12.464748', '2025-07-10 01:29:12.464748') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Gwyneth', 'Paltrow', 'https://content.codecademy.com/courses/learn-rails/img/gwyneth-paltrow.jpg', 'Gwyneth Kate Paltrow is an American actress, singer, and food writer. Paltrow gained early notice for her work in films such as the psych...', '2025-07-10 01:29:12.469048', '2025-07-10 01:29:12.469048') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Kate', 'Winslet', 'https://content.codecademy.com/courses/learn-rails/img/kate-winslet.jpg', 'Kate Elizabeth Winslet, CBE, is an English actress and singer. She is the recipient of an Academy Award, an Emmy Award, three Golden Glob...', '2025-07-10 01:29:12.477697', '2025-07-10 01:29:12.477697') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.1ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Bryan', 'Cranston', 'https://content.codecademy.com/courses/learn-rails/img/bryan-cranston.jpg', 'Bryan Lee Cranston is an American actor, voice actor, screenwriter, director and producer. Cranston is best known for portraying Walter W...', '2025-07-10 01:29:12.480284', '2025-07-10 01:29:12.480284') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Leonardo', 'DiCaprio', 'https://content.codecademy.com/courses/learn-rails/img/leonardo-dicaprio.jpg', 'Leonardo Wilhelm DiCaprio is an American actor and film producer. He has been nominated for ten Golden Globe Awards, winning two, and fo...', '2025-07-10 01:29:12.482931', '2025-07-10 01:29:12.482931') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Jack', 'Nicholson', 'https://content.codecademy.com/courses/learn-rails/img/jack-nicholson.jpg', 'John Joseph "Jack" Nicholson is an American actor, film director, producer, and writer. Throughout his career, Nicholson has portrayed un...', '2025-07-10 01:29:12.486672', '2025-07-10 01:29:12.486672') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Joseph', 'Gordon-Levitt', 'https://content.codecademy.com/courses/learn-rails/img/joseph-gordon-levitt.jpg', 'Joseph Leonard Gordon-Levitt is an American actor and filmmaker. As a child star, he appeared in the films A River Runs Through It, Angel...', '2025-07-10 01:29:12.493883', '2025-07-10 01:29:12.493883') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.0ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Tom', 'Hardy', 'https://content.codecademy.com/courses/learn-rails/img/tom-hardy.jpg', 'Edward Thomas "Tom" Hardy is an English actor. Hardy''s notable film roles include the science fiction film Star Trek: Nemesis, the Guy Ri...', '2025-07-10 01:29:12.503520', '2025-07-10 01:29:12.503520') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.9ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Cillian', 'Murphy', 'https://content.codecademy.com/courses/learn-rails/img/cillian-murphy.jpg', 'Cillian Murphy is an Irish actor of stage and screen. Since making his debut in his home country in the late 1990s, Murphy has also becom...', '2025-07-10 01:29:12.522486', '2025-07-10 01:29:12.522486') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Christian', 'Bale', 'https://content.codecademy.com/courses/learn-rails/img/christian-bale.jpg', 'Christian Charles Philip Bale is an English actor. He has starred in both blockbuster films and smaller projects from independent produce...', '2025-07-10 01:29:12.524759', '2025-07-10 01:29:12.524759') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (2.1ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Morgan', 'Freeman', 'https://content.codecademy.com/courses/learn-rails/img/morgan-freeman.jpg', 'Morgan Freeman is an American actor, film director, and narrator. Freeman has received Academy Award nominations for his performances in ...', '2025-07-10 01:29:12.526801', '2025-07-10 01:29:12.526801') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.4ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Robert', 'Downey Jr.', 'https://content.codecademy.com/courses/learn-rails/img/rdj.jpg', 'Robert John Downey Jr. is an American actor, producer, and singer. Making his screen debut at the age of five, appearing in his father Ro...', '2025-07-10 01:29:12.530253', '2025-07-10 01:29:12.530253') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.4ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Terrence', 'Howard', 'https://content.codecademy.com/courses/learn-rails/img/terrence-howard.jpg', 'Terrence Dashon Howard is an American actor and singer. Having his first major role in the 1995 film Dead Presidents, and Mr. Holland''s O...', '2025-07-10 01:29:12.532959', '2025-07-10 01:29:12.532959') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Jeff', 'Bridges', 'https://content.codecademy.com/courses/learn-rails/img/jeff-bridges.jpg', 'Jeffrey Leon "Jeff" Bridges is an American actor, country musician, and producer. He comes from a well-known acting family and began his ...', '2025-07-10 01:29:12.537200', '2025-07-10 01:29:12.537200') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.7ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Rachel', 'McAdams', 'https://content.codecademy.com/courses/learn-rails/img/rachel-mcadams.jpg', 'Rachel Anne McAdams is a Canadian actress. After graduating from a four-year theatre program at York University in 2001, she initially wo...', '2025-07-10 01:29:12.539326', '2025-07-10 01:29:12.539326') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Mark', 'Strong', 'https://content.codecademy.com/courses/learn-rails/img/mark-strong.jpg', 'Mark Strong is an English film and television actor. He is best known for his role in the television series Our Friends in the North and ...', '2025-07-10 01:29:12.542765', '2025-07-10 01:29:12.542765') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Diane', 'Lane', 'https://content.codecademy.com/courses/learn-rails/img/diane-lane.jpg', 'Diane Lane is an American actress. Born and raised in New York City, Lane made her screen debut in George Roy Hill''s 1979 film A Little R...', '2025-07-10 01:29:12.547688', '2025-07-10 01:29:12.547688') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.7ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Anne', 'Hathaway', 'https://content.codecademy.com/courses/learn-rails/img/anne-hathaway.jpg', 'Anne Jacqueline Hathaway is an American actress, singer, and producer. After several stage roles, she appeared in the 1999 television ser...', '2025-07-10 01:29:12.549892', '2025-07-10 01:29:12.549892') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (2.9ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Michael', 'Caine', 'https://content.codecademy.com/courses/learn-rails/img/michael-caine.jpg', 'Sir Michael Caine, CBE is an English actor and author. Renowned for his distinctive Cockney accent, Caine has appeared in over 115 films ...', '2025-07-10 01:29:12.552024', '2025-07-10 01:29:12.552024') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Natalie', 'Portman', 'https://content.codecademy.com/courses/learn-rails/img/natalie-portman.png', 'Natalie Portman is an Israeli-born American actress, producer, and director. Her first role was in the 1994 action thriller Léon: The Pr...', '2025-07-10 01:29:12.558713', '2025-07-10 01:29:12.558713') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (0.8ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Clive', 'Owen', 'https://content.codecademy.com/courses/learn-rails/img/clive-owen.jpg', 'Clive Owen is an English actor who first gained recognition in the United Kingdom for playing the lead role in the ITV series Chancer fro...', '2025-07-10 01:29:12.561676', '2025-07-10 01:29:12.561676') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mActor Create (1.4ms)[0m  [1m[32mINSERT INTO "actors" ("first_name", "last_name", "image", "bio", "created_at", "updated_at") VALUES ('Matthew', 'McConaughey', 'https://content.codecademy.com/courses/learn-rails/img/matthew-mcconaughey.jpg', 'Matthew David McConaughey is an American actor and producer. He first gained notice for his breakout role in the coming-of-age comedy Daz...', '2025-07-10 01:29:12.581391', '2025-07-10 01:29:12.581391') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Ocean''s 11', 'https://content.codecademy.com/courses/learn-rails/img/oceans-11.jpg', '2001', 'Dapper Danny Ocean (George Clooney) is a man of action. Less than 24 hours into his parole from a New Jersey penitentiary, the wry, chari...', '2025-07-10 01:29:12.635801', '2025-07-10 01:29:12.635801') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('The Perfect Storm', 'https://content.codecademy.com/courses/learn-rails/img/the-perfect-storm.jpg', '2000', 'Based on a true story, the film tells of the courageous men and women who risk their lives every working day, pitting their fishing boats...', '2025-07-10 01:29:12.645513', '2025-07-10 01:29:12.645513') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.8ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Contagion', 'https://content.codecademy.com/courses/learn-rails/img/contagion.jpg', '2011', 'When Beth Emhoff (Gwyneth Paltrow) returns to Minnesota from a Hong Kong business trip, she attributes the malaise she feels to jet lag ...', '2025-07-10 01:29:12.647642', '2025-07-10 01:29:12.647642') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('The Departed', 'https://content.codecademy.com/courses/learn-rails/img/the-departed.jpg', '2006', 'South Boston cop Billy Costigan (Leonardo DiCaprio) goes under cover to infiltrate the organization of gangland chief Frank Costello (Jac...', '2025-07-10 01:29:12.649826', '2025-07-10 01:29:12.649826') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('The Dark Knight Rises', 'https://content.codecademy.com/courses/learn-rails/img/dark-knight-rises.jpg', '2012', 'It has been eight years since Batman (Christian Bale), in collusion with Commissioner Gordon (Gary Oldman), vanished into the night. Assu...', '2025-07-10 01:29:12.652166', '2025-07-10 01:29:12.652166') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Iron Man', 'https://content.codecademy.com/courses/learn-rails/img/iron-man.jpg', '2008', 'A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, but terrorists kid...', '2025-07-10 01:29:12.654580', '2025-07-10 01:29:12.654580') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (0.9ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Sherlock Holmes', 'https://content.codecademy.com/courses/learn-rails/img/sherlock-holmes.jpg', '2009', 'When a string of brutal murders terrorizes London, it doesn''t take long for legendary detective Sherlock Holmes (Robert Downey Jr.) and ...', '2025-07-10 01:29:12.656945', '2025-07-10 01:29:12.656945') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (1.2ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Closer', 'https://content.codecademy.com/courses/learn-rails/img/closer.jpg', '2004', 'Alice (Natalie Portman), who has moved to London, meets Dan (Jude Law) on the street. While looking at him, a taxi hits her. After taking ...', '2025-07-10 01:29:12.659803', '2025-07-10 01:29:12.659803') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mMovie Create (1.0ms)[0m  [1m[32mINSERT INTO "movies" ("title", "image", "release_year", "plot", "created_at", "updated_at") VALUES ('Interstellar', 'https://content.codecademy.com/courses/learn-rails/img/interstellar.jpg', '2014', 'In Earth''s future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable. Professor Brand (Michael Cai...', '2025-07-10 01:29:12.662630', '2025-07-10 01:29:12.662630') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (1, 1, '2025-07-10 01:29:12.756498', '2025-07-10 01:29:12.756498') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (1, 2, '2025-07-10 01:29:12.763666', '2025-07-10 01:29:12.763666') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (1, 3, '2025-07-10 01:29:12.766081', '2025-07-10 01:29:12.766081') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (1, 4, '2025-07-10 01:29:12.769742', '2025-07-10 01:29:12.769742') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (1, 5, '2025-07-10 01:29:12.771744', '2025-07-10 01:29:12.771744') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (2, 1, '2025-07-10 01:29:12.781163', '2025-07-10 01:29:12.781163') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (2, 6, '2025-07-10 01:29:12.787730', '2025-07-10 01:29:12.787730') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (2, 25, '2025-07-10 01:29:12.793732', '2025-07-10 01:29:12.793732') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 7, '2025-07-10 01:29:12.799212', '2025-07-10 01:29:12.799212') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 8, '2025-07-10 01:29:12.802613', '2025-07-10 01:29:12.802613') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 9, '2025-07-10 01:29:12.804099', '2025-07-10 01:29:12.804099') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 10, '2025-07-10 01:29:12.807333', '2025-07-10 01:29:12.807333') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 11, '2025-07-10 01:29:12.809469', '2025-07-10 01:29:12.809469') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 12, '2025-07-10 01:29:12.810970', '2025-07-10 01:29:12.810970') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 4, '2025-07-10 01:29:12.824655', '2025-07-10 01:29:12.824655') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (3, 2, '2025-07-10 01:29:12.836284', '2025-07-10 01:29:12.836284') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (4, 2, '2025-07-10 01:29:12.844884', '2025-07-10 01:29:12.844884') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (4, 13, '2025-07-10 01:29:12.849056', '2025-07-10 01:29:12.849056') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (4, 14, '2025-07-10 01:29:12.850730', '2025-07-10 01:29:12.850730') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (4, 6, '2025-07-10 01:29:12.852038', '2025-07-10 01:29:12.852038') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 18, '2025-07-10 01:29:12.854139', '2025-07-10 01:29:12.854139') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 19, '2025-07-10 01:29:12.856633', '2025-07-10 01:29:12.856633') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 27, '2025-07-10 01:29:12.857851', '2025-07-10 01:29:12.857851') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 16, '2025-07-10 01:29:12.859028', '2025-07-10 01:29:12.859028') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 7, '2025-07-10 01:29:12.860599', '2025-07-10 01:29:12.860599') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 17, '2025-07-10 01:29:12.861796', '2025-07-10 01:29:12.861796') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 15, '2025-07-10 01:29:12.863013', '2025-07-10 01:29:12.863013') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (5, 26, '2025-07-10 01:29:12.864178', '2025-07-10 01:29:12.864178') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (6, 20, '2025-07-10 01:29:12.866731', '2025-07-10 01:29:12.866731') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (6, 21, '2025-07-10 01:29:12.872131', '2025-07-10 01:29:12.872131') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (6, 22, '2025-07-10 01:29:12.873780', '2025-07-10 01:29:12.873780') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (6, 10, '2025-07-10 01:29:12.874800', '2025-07-10 01:29:12.874800') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (7, 20, '2025-07-10 01:29:12.877092', '2025-07-10 01:29:12.877092') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (7, 9, '2025-07-10 01:29:12.879330', '2025-07-10 01:29:12.879330') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (7, 23, '2025-07-10 01:29:12.880550', '2025-07-10 01:29:12.880550') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (7, 24, '2025-07-10 01:29:12.881803', '2025-07-10 01:29:12.881803') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (8, 5, '2025-07-10 01:29:12.884878', '2025-07-10 01:29:12.884878') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.2ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (8, 9, '2025-07-10 01:29:12.903174', '2025-07-10 01:29:12.903174') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.0ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (8, 28, '2025-07-10 01:29:12.904973', '2025-07-10 01:29:12.904973') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.0ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (8, 29, '2025-07-10 01:29:12.905925', '2025-07-10 01:29:12.905925') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='MovieApp'*/[0m
+  [1m[36mPart Create (1.1ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (9, 30, '2025-07-10 01:29:12.909458', '2025-07-10 01:29:12.909458') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.0ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (9, 26, '2025-07-10 01:29:12.911458', '2025-07-10 01:29:12.911458') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.0ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (9, 27, '2025-07-10 01:29:12.912391', '2025-07-10 01:29:12.912391') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mPart Create (0.0ms)[0m  [1m[32mINSERT INTO "parts" ("movie_id", "actor_id", "created_at", "updated_at") VALUES (9, 2, '2025-07-10 01:29:12.913311', '2025-07-10 01:29:12.913311') RETURNING "id" /*application='MovieApp'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='MovieApp'*/[0m
+Started GET "/" for ::1 at 2025-07-09 20:39:08 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/theresa/.local/share/mise/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/theresa/.local/share/mise/installs/ruby/3.4.4/lib/ruby/gems/3.4.0/gems/railties-8.0.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.0ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 3.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/movies" for 127.0.0.1 at 2025-07-09 20:39:33 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:21
+  Rendered movies/index.html.erb within layouts/application (Duration: 23.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.1ms | GC: 0.0ms)
+Completed 200 OK in 87ms (Views: 40.1ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/movies" for ::1 at 2025-07-09 20:40:29 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (4.9ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:21
+  Rendered movies/index.html.erb within layouts/application (Duration: 14.4ms | GC: 0.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 41.8ms | GC: 1.0ms)
+Completed 200 OK in 77ms (Views: 37.8ms | ActiveRecord: 4.9ms (1 query, 0 cached) | GC: 20.9ms)
+
+
+Started GET "/assets/application-d13b5d52.css" for ::1 at 2025-07-09 20:40:29 -0500
+Started GET "/movies/3" for ::1 at 2025-07-09 20:40:35 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:7:in 'MoviesController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mActor Load (0.1ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = 3 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/show.html.erb:16
+  Rendered movies/show.html.erb within layouts/application (Duration: 43.3ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | GC: 1.4ms)
+Completed 200 OK in 84ms (Views: 46.4ms | ActiveRecord: 2.3ms (2 queries, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/movies/3" for ::1 at 2025-07-09 20:41:32 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 3 LIMIT 1 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:7:in 'MoviesController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mActor Load (0.1ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = 3 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/show.html.erb:16
+  Rendered movies/show.html.erb within layouts/application (Duration: 20.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.7ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 26.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/movies" for ::1 at 2025-07-09 20:46:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='MovieApp'*/[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering movies/index.html.erb within layouts/application
+  [1m[36mMovie Load (1.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" /*action='index',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/index.html.erb:13
+  Rendered movies/index.html.erb within layouts/application (Duration: 28.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 46.5ms | GC: 0.0ms)
+Completed 200 OK in 105ms (Views: 49.2ms | ActiveRecord: 2.5ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/movies/4" for ::1 at 2025-07-09 20:46:39 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "4"}
+  [1m[36mMovie Load (4.6ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 4 LIMIT 1 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:7:in 'MoviesController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mActor Load (0.1ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = 4 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/show.html.erb:16
+  Rendered movies/show.html.erb within layouts/application (Duration: 48.5ms | GC: 1.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 57.4ms | GC: 1.6ms)
+Completed 200 OK in 115ms (Views: 55.4ms | ActiveRecord: 7.0ms (2 queries, 0 cached) | GC: 20.1ms)
+
+
+Started GET "/actors" for ::1 at 2025-07-09 20:46:49 -0500
+Processing by ActorsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering actors/index.html.erb within layouts/application
+  [1m[36mActor Load (0.7ms)[0m  [1m[34mSELECT "actors".* FROM "actors" /*action='index',application='MovieApp',controller='actors'*/[0m
+  ↳ app/views/actors/index.html.erb:5
+  Rendered actors/index.html.erb within layouts/application (Duration: 26.9ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | GC: 0.2ms)
+Completed 200 OK in 43ms (Views: 30.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/actors/2" for ::1 at 2025-07-09 20:46:51 -0500
+Processing by ActorsController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mActor Load (0.1ms)[0m  [1m[34mSELECT "actors".* FROM "actors" WHERE "actors"."id" = 2 LIMIT 1 /*action='show',application='MovieApp',controller='actors'*/[0m
+  ↳ app/controllers/actors_controller.rb:7:in 'ActorsController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering actors/show.html.erb within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" INNER JOIN "parts" ON "movies"."id" = "parts"."movie_id" WHERE "parts"."actor_id" = 2 /*action='show',application='MovieApp',controller='actors'*/[0m
+  ↳ app/views/actors/show.html.erb:16
+  Rendered actors/show.html.erb within layouts/application (Duration: 31.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.7ms | GC: 0.0ms)
+Completed 200 OK in 53ms (Views: 34.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/movies/9" for ::1 at 2025-07-09 20:47:35 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id" => "9"}
+  [1m[36mMovie Load (0.7ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = 9 LIMIT 1 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/controllers/movies_controller.rb:7:in 'MoviesController#show'
+  Rendering layout layouts/application.html.erb
+  Rendering movies/show.html.erb within layouts/application
+  [1m[36mActor Load (0.1ms)[0m  [1m[34mSELECT "actors".* FROM "actors" INNER JOIN "parts" ON "actors"."id" = "parts"."actor_id" WHERE "parts"."movie_id" = 9 /*action='show',application='MovieApp',controller='movies'*/[0m
+  ↳ app/views/movies/show.html.erb:16
+  Rendered movies/show.html.erb within layouts/application (Duration: 7.7ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 0.4ms)
+Completed 200 OK in 28ms (Views: 14.7ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.9ms)
+
+
