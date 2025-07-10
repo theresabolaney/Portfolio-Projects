@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To run locally, open Ubuntu and:
+1. Navigate to the MovieApp folder
+2. Enter "rails server" to start the server
+3. Open a browser and navigate to "http://localhost:3000/movies" to see the movies list
+4. Alternatively, you can navigate to "http://localhost:3000/actors" to see the actors list
